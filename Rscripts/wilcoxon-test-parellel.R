@@ -1,5 +1,5 @@
-author  <- "Huang Ruocheng (ruocheng_huang@shbiochip.com)"
-version <- "v0.1.0, 2017/05/09"
+author  <- ""
+version <- ""
 
 Usage_and_Arguments <- function(author, version){
       cat(paste("
