@@ -9,8 +9,7 @@ Usage_and_Arguments <- function(author, version){
       Usage:
          Rscript wilcoxon-test-parallel.R <output.prefix> <input-matrix.txt> <phenotype.txt> <cores>
       Example:
-         Rscript wilcoxon-test-parallel.R ~/output/BC160000 ~/BC160000.relative_abundance.txt ~/BC160000.phenotype.txt 8
-
+         Rscript wilcoxon-test-parallel.R ./xiu_test ~/relative_abundance.txt ~/.txt 8
 "))
 }
 
