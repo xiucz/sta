@@ -1,10 +1,4 @@
----
-title: "Untitled"
-author: "1101256002@qq.com"
-date: "2017年6月19日"
-output: html_document
----
-```{r}
+
 setwd("F:\\000000000\\20170607")
 ## 参数
 output.prefix <- "xiu_test"
@@ -20,9 +14,7 @@ mydata <- read.table(path.matrix, header = T, sep = "\t", comment.char = "!", ro
 ## 样本表型信息
 group.info <- read.table(path.phenotype, header = T, sep = "\t", stringsAsFactors = F)
 mydata.factor <- sapply(colnames(mydata), FUN = function(x) {with(group.info, Group[Sample == x])} )
-```
 
-```{r}
 head(mydata)
 head(group.info)
 library(reshape2)
@@ -30,17 +22,13 @@ mydata_tmp <- as.data.frame(t(mydata))
 mydata_tmp$Sample <- rownames(mydata_tmp)
 all.data <- merge(group.info, mydata_tmp, by.x = "Sample", by.y = "Sample")
 all.data <- all.data[,c(2,12:ncol(all.data))]
-```
 
-```{r}
 library(FSA)
 head(all.data)
 #apply(all.data[, 2:ncol(all.data)], MARGIN = 2,FUN = function(x) {kruskal.test(as.numeric(x)~ factor(all.data$Group))$p.value})
 mypvalues <- sapply(2:ncol(all.data), FUN = function(x) {kruskal.test(as.numeric(all.data[,x])~ factor(all.data$Group))$p.value})
 mypvalues.adjust <- p.adjust(mypvalues, method = "fdr")
-```
 
-```{r}
 ## wilcoxon 检验
 library(parallel)
 mydata
@@ -65,4 +53,4 @@ write.table(x = mydata[mypvalues.adjust < threshold.fdr & mean.diff < 0,],
             col.names = F, row.names = T, sep = "\t", quote = F)
 write.table(x = t(c("gene", colnames(mydata))), file = paste(output.prefix, ".header.txt", sep = ""),
 row.names = F, col.names = F, sep = "\t", quote = F)
-```
+
