@@ -1,0 +1,5 @@
+```r
+dotchart(VADeaths)
+qqnorm(AirPassengers)
+qqline(AirPassengers)
+```
