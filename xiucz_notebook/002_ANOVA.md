@@ -1,20 +1,25 @@
+## 
+数值变量 --> 观测变量  
+分类变量 --> 控制变量
+
 ## 前提条件
+* 方差分析模型是线性可加模型，模型中的分量直接应该有线性关系；
 * 独立方差性：样本必须来自于一个正态分布总体，并且样本间是相互独立的；
 * 等方差性或方差齐性：抽样的总体必须是等方差的。
 ## 单因素方差分析
 ### 
 ```r
-> library("multcomp")
-> attach(cholesterol)
-> head(cholesterol)
-    trt response
-1 1time   3.8612
-2 1time  10.3868
-3 1time   5.9059
-4 1time   3.0609
-5 1time   7.7204
-6 1time   2.7139
+> head(Orange)
+Tree  age circumference1
+1  118            302    
+1  484            583    
+1  664            874    
+1 1004           1155    
+1 1231           1206    
+1 1372           142
 ```
+Tree,age 控制变量  
+circumference 观测变量
 
 ### 正态性检验
 ```r
