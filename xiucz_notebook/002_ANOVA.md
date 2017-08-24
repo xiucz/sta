@@ -51,7 +51,9 @@ data:  response[trt == i]
 W = 0.98085, p-value = 0.9696
 ```
 shapiro.test函数输出一个p值，照惯例，p<0.05说明总体不太可能是正太分布，否则不能提供这么个证据，也就是说这个检验比较保守，倾向于错误的过分证明正态性。
-http://blog.csdn.net/yucan1001/article/details/23539639
+http://blog.csdn.net/yucan1001/article/details/23539639  
+http://blog.csdn.net/troubleisafriend/article/details/48008189
+
 ### 方差齐次性检验（homoskedasticity）
 * Bartlett检验
 * Levene检验（由car包提供）
