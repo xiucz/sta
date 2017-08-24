@@ -1,11 +1,3 @@
-
-
-
-
-
-
-
-
 ### FSA package
 ```r
 > library(FSA)
