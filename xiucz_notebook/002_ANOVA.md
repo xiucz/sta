@@ -23,6 +23,11 @@ circumference 观测变量
 
 ### 正态性检验
 ```r
+library("multcomp")
+attach(cholesterol)
+head(cholesterol)
+```
+```r
 > for (i in levels(cholesterol$trt)){print(shapiro.test(response[trt==i]))}
 
         Shapiro-Wilk normality test
