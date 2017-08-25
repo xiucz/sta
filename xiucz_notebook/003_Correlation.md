@@ -22,6 +22,9 @@ Petal.Width     0.8179411  -0.3661259    0.9628654   1.0000000
 ## method = "spearman"
 ## method = "kendall"
 ```
+```
+> library(Hmisc)
+```
 cor.test(iris[,1], iris[,3])
 
 pairs(iris[,-5])
