@@ -24,10 +24,52 @@ Petal.Width     0.8179411  -0.3661259    0.9628654   1.0000000
 ```
 ```
 > library(Hmisc)
+> res <- rcorr(as.matrix(iris[,-5]))
+             Sepal.Length Sepal.Width Petal.Length Petal.Width
+Sepal.Length         1.00       -0.12         0.87        0.82
+Sepal.Width         -0.12        1.00        -0.43       -0.37
+Petal.Length         0.87       -0.43         1.00        0.96
+Petal.Width          0.82       -0.37         0.96        1.00
+
+n= 150 
+
+
+P
+             Sepal.Length Sepal.Width Petal.Length Petal.Width
+Sepal.Length              0.1519      0.0000       0.0000     
+Sepal.Width  0.1519                   0.0000       0.0000     
+Petal.Length 0.0000       0.0000                   0.0000     
+Petal.Width  0.0000       0.0000      0.0000                  
+```
+```
+flattenCorrMatrix <- function(cormat, pmat) { 
+  ut <- upper.tri(cormat) data.frame( row = rownames(cormat)[row(cormat)[ut]], 
+  column = rownames(cormat)[col(cormat)[ut]], cor =(cormat)[ut], p = pmat[ut] )
+  }
+
+flattenCorrMatrix(res$r, res$P)
 ```
 cor.test(iris[,1], iris[,3])
 
 pairs(iris[,-5])
+
+## 可视化
+
+### symnum()
+```
+
+```
+### corrplot()
+
+### scatter plots
+```
+library(PerformanceAnalytics)#加载包
+chart.Correlation()
+```
+
+### heatmap
+
+
 
 ## 偏相关系数
 ```r
@@ -44,4 +86,3 @@ pairs(iris[,-5])
 
 ## 典型相关分析
 研究整体的相关系数
-
