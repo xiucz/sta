@@ -50,7 +50,7 @@ W = 0.93406, p-value = 0.489
 data:  response[trt == i]
 W = 0.98085, p-value = 0.9696
 ```
-shapiro.test函数输出一个p值，照惯例，p<0.05说明总体不太可能是正太分布，否则不能提供这么个证据，也就是说这个检验比较保守，倾向于错误的过分证明正态性。
+shapiro.test函数输出一个p值，照惯例，p<0.05说明总体不太可能是正太分布，否则不能提供这么个证据，也就是说这个检验比较保守，倾向于错误的过分证明正态性。  
 http://blog.csdn.net/yucan1001/article/details/23539639  
 http://blog.csdn.net/troubleisafriend/article/details/48008189
 
@@ -118,6 +118,11 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 ```
 ### 多重比较
+SNK检验  
+LSD-t检验
+Turkey检验: 要求样本量相同；
+Duncan]检验
+Dunnet检验
 #### 多重t检验
 ```r
 > pairwise.t.test(response,trt,p.adjust.method = "none")
