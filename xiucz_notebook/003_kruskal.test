@@ -1,3 +1,22 @@
+
+
+## Kruskal-Wallis Test
+```r
+> head(airquality) 
+  Ozone Solar.R Wind Temp Month Day
+1    41     190  7.4   67     5   1
+2    36     118  8.0   72     5   2
+3    12     149 12.6   74     5   3
+4    18     313 11.5   62     5   4
+5    NA      NA 14.3   56     5   5
+6    28      NA 14.9   66     5   6
+> kruskal.test(Ozone ~ Month, data = airquality) 
+
+        Kruskal-Wallis rank sum test
+
+data:  Ozone by Month
+Kruskal-Wallis chi-squared = 29.267, df = 4, p-value = 6.901e-06
+```
 ### FSA package
 ```r
 > library(FSA)
@@ -20,6 +39,7 @@ Dunn (1964) Kruskal-Wallis multiple comparison
 10      8 - 9  2.6909232648 7.125458e-03 0.0498782076
 Warning message:
 'g' variable was coerced to a factor. 
+
 > #dunnTest(Month~Ozone, data=ponds) ## formula usage (default "holm" method)
 > dunnTest(airquality$Ozone, airquality$Month)
 Dunn (1964) Kruskal-Wallis multiple comparison
@@ -40,20 +60,13 @@ Warning messages:
 1: 'g' variable was coerced to a factor. 
 2: Some rows deleted from 'x' and 'g' because missing data. 
 > detach(airquality)
-
 ```
+
 ### dunn.test package
 ```r
 > library(dunn.test)
 > attach(airquality)
-> head(airquality)
-  Ozone Solar.R Wind Temp Month Day
-1    41     190  7.4   67     5   1
-2    36     118  8.0   72     5   2
-3    12     149 12.6   74     5   3
-4    18     313 11.5   62     5   4
-5    NA      NA 14.3   56     5   5
-6    28      NA 14.9   66     5   6
+
 > dunn.test(Ozone, Month, kw=FALSE, method="bonferroni", list = T)
 
                          Comparison of Ozone by Month                          
@@ -91,3 +104,4 @@ List of pairwise comparisons: Z statistic (adjusted p-value)
 
 ## Reference_Infos
 http://www.sthda.com/english/wiki/add-p-values-and-significance-levels-to-ggplots
+http://www.r-tutor.com/elementary-statistics/non-parametric-methods/kruskal-wallis-test
